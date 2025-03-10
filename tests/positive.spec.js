@@ -1,13 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { faker } from '@faker-js/faker';
-
-const firstName = faker.person.firstName();
-const lastName = faker.person.lastName();
-const email = faker.internet.email();
-const password = 'Test123!'
-
-module.exports = {firstName, lastName, email, password}
-
+import {firstName, lastName, email, password} from './test-data/registration-data.js';
 
 test.beforeEach('open registration form', async ({page}) => {
     await page.goto('https://guest:welcome2qauto@qauto.forstudy.space/');

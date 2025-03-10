@@ -4,3 +4,6 @@ node_modules/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+tests/example.spec.js
+tests/negative.spec.js
+tests/positive.spec.js
