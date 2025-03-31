@@ -49,7 +49,7 @@ export default defineConfig({
     {
       name: 'stage',
       use: { 
-        baseURL: process.env.BASE_URL_STAGE
+        baseURL: process.env.BASE_URL
        },
     },
 

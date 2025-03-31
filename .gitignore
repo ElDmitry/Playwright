@@ -1,13 +1,6 @@
 # Playwright
 node_modules/
-/test-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/
-tests\test-data\registration-data.js
-tests\test-data\pom.js
-tests\example.spec.js
-tests\negative.spec.js
-tests\NegativePOM.spec.js
-tests\positive.spec.js
-tests\PositivePOM.spec.js
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
