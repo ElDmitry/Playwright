@@ -4,3 +4,6 @@ test-results/
 playwright-report/
 blob-report/
 playwright/.cache/
+test/api.cases.test.js
+test/api.test.js
+test-examples/demo-todo-app.spec.js
