@@ -1,27 +1,21 @@
-name: Run Playwright in Docker
-
+name: Playwright Tests
 on:
   push:
-    branches: [ main ]
+    branches: [ main, master ]
   pull_request:
-    branches: [ main ]
-
+    branches: [ main, master ]
 jobs:
-  playwright-tests:
+  playwright:
+    name: 'Playwright Tests'
     runs-on: ubuntu-latest
-
+    container:
+      image: mcr.microsoft.com/playwright:v1.39.0-jammy
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Build Docker Image
-        run: docker build -t playwright-tests .
-
-      - name: Run Playwright tests in Docker
-        run: |
-          docker run --rm \
-            -v ${{ github.workspace }}/playwright-report:/app/playwright-report \
-            -e BASE_URL=https://guest:welcome2qauto@qauto.forstudy.space \
-            -e LOGIN=testinho@meta.ua \
-            -e PASSWORD=Test123! \
-            playwright-tests
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm ci
+      - name: Run your tests
+        run: npx playwright test
