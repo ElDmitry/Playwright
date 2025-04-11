@@ -5,17 +5,13 @@ on:
   pull_request:
     branches: [ apiPlaywright ]
 jobs:
-  playwright:
-    name: 'Playwright Tests'
+  test:
     runs-on: ubuntu-latest
     container:
-      image: mcr.microsoft.com/playwright:v1.50.1.
+      image: mcr.microsoft.com/playwright:v1.50.1-jammy
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
+      - uses: actions/checkout@v4
       - name: Install dependencies
         run: npm ci
-      - name: Run your tests
+      - name: Run Playwright tests
         run: npx playwright test
